@@ -1,0 +1,23 @@
+{
+  "name": "peerdp-client",
+  "version": "1.0.0",
+  "description": "PeerDP Web Client",
+  "homepage": "https://github.com/columnlabs/peerdb/tree/main#readme",
+  "bugs": {
+    "url": "https://github.com/columnlabs/peerdb/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/columnlabs/peerdb.git#main"
+  },
+  "license": "ISC",
+  "author": "Column Labs, Ltd.",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}

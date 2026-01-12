@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>View-only | PeerDP</title>
+</head>
+
+<body>
+  <canvas id="streamOutput"></canvas>
+  <br />
+  <span id="status">Connecting...</span>
+
+  <style>
+    body {
+      text-align:center;
+      margin:auto;
+    }
+  </style>
+
+  <script 
+    src="https://static.simplesocket.net/library/js/2.1/simplesocket.js">
+  </script>
+
+  <script>
+    const socket = new SimpleSocket({
+      project_id: "618b715cc97663b8d8809a78",
+      project_token: "client_4b28c93c6ed6e1fc214243f13f6b6c07b26",
+    });
+
+    const status = document.getElementById("status");
+    status.innerText = "Connected!";
+
+    const outputCanvas = document.getElementById("streamOutput");
+    const ctx = outputCanvas.getContext("2d");
+
+    outputCanvas.width = 1920 / 4; // or your monitor capture width
+    outputCanvas.height = 1080 / 4;
+
+    socket.subscribe(
+      {
+        task: "stream"
+      },
+      async (data) => {
+        const blob = await (async () => {
+          const b64 = data.frame;
+          const res = await fetch(`data:image/jpeg;base64,${b64}`);
+          return await res.blob();
+        })();
+
+        // const blob = new Blob([uint8Frame], { type: "image/jpeg" });
+        const bitmap = await createImageBitmap(blob);
+
+        outputCanvas.width = bitmap.width;
+        outputCanvas.height = bitmap.height;
+
+        ctx.drawImage(bitmap, 0, 0, outputCanvas.width, outputCanvas.height);
+      }
+    );
+  </script>
+</body>
+
+</html>

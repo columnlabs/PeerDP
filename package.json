@@ -1,0 +1,48 @@
+{
+  "name": "peerdp",
+  "version": "1.0.0",
+  "description": "An experimental remote desktop toy using SimpleSocket by Exotek. Not intended for daily or serious use.",
+  "keywords": [
+    "peerdp",
+    "peertopeer",
+    "rdp",
+    "peer",
+    "to",
+    "p2p",
+    "remote",
+    "desktop",
+    "vnc",
+    "alternative",
+    "server",
+    "client",
+    "software",
+    "windows",
+    "linux",
+    "macos",
+    "node",
+    "javascript",
+    "simplesocket",
+    "simple",
+    "socket"
+  ],
+  "homepage": "https://github.com/columnlabs/peerdp#readme",
+  "bugs": {
+    "url": "https://github.com/columnlabs/peerdp/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/columnlabs/peerdp.git"
+  },
+  "license": "ISC",
+  "author": "Column Labs, Ltd.",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "dotenv": "^17.2.3",
+    "node-screenshots": "^0.2.1",
+    "simple-socket-js": "^2.1.32"
+  }
+}
